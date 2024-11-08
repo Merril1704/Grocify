@@ -1,11 +1,13 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('metro-config').MetroConfig}
- */
-const config = {};
+const config = {
+  resolver: {
+    sourceExts: ['jsx', 'js', 'ts', 'tsx', 'json', 'cjs'],
+  },
+  watchFolders: [
+    // Add any folders you want to exclude from watching if needed
+  ],
+  maxWorkers: 2, // Adjust as needed
+};
 
 module.exports = mergeConfig(getDefaultConfig(__dirname), config);
